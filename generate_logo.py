@@ -2,7 +2,7 @@ from moviepy.video.VideoClip import VideoClip
 from PIL import Image, ImageEnhance
 import numpy as np
 
-image_path = "logo_kamu.png"
+image_path = "enhanced_image~2.png"
 original_img = Image.open(image_path).convert("RGBA")
 resized_img = original_img.resize((512, 512), resample=Image.BICUBIC)
 
