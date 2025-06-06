@@ -1,0 +1,30 @@
+# .github/workflows/generate_video.yml
+name: Generate Logo MP4
+
+on:
+  push:
+    paths:
+      - generate_logo.py
+      - logo_kamu.png
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y ffmpeg
+          pip install pillow moviepy numpy
+
+      - name: Run Python script
+        run: python generate_logo.py
+
+      - name: Upload output
+        uses: actions/upload-artifact@v3
+        with:
+          name: animated-logo
+          path: logo_animated.mp4
