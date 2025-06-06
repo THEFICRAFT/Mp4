@@ -38,7 +38,7 @@ def make_frame(t):
 
 # === Buat video clip ===
 animated_clip = VideoClip(make_frame, duration=duration)
-animated_clip = animated_clip.set_fps(fps)
+animated_clip.fps = fps  # <- menetapkan FPS langsung
 
 # === Simpan sebagai file MP4 ===
 animated_clip.write_videofile("logo_animated.mp4", codec="libx264", audio=False)
